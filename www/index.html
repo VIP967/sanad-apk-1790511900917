@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعهد اليمني الصيني للتدريب والتأهيل</title>
+    <!-- Tailwind CSS for modern responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ycsRed: '#DE2910',
+                        ycsYellow: '#FFDE00',
+                        ycsDark: '#1E293B',
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        .hero-pattern {
+            background-color: #1e293b;
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Top Bar -->
+    <div class="bg-ycsDark text-slate-300 text-xs py-2 px-4 border-b border-slate-700">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <span><i class="fas fa-phone-alt text-ycsYellow ml-1"></i> +967 1 234567</span>
+                <span class="hidden sm:inline"><i class="fas fa-envelope text-ycsYellow ml-1"></i> info@ycs-institute.ye</span>
+            </div>
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <span class="bg-ycsRed text-white px-2 py-0.5 rounded text-[10px] font-bold animate-pulse">بوابة الطلاب الرسمية</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo & Title -->
+            <div class="flex items-center space-x-3 space-x-reverse cursor-pointer" onclick="showSection('home')">
+                <div class="w-12 h-12 bg-gradient-to-tr from-ycsRed to-red-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-red-500/30">
+                    <i class="fas fa-graduation-cap text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-lg md:text-xl text-slate-900 leading-tight">المعهد اليمني الصيني</h1>
+                    <p class="text-xs text-slate-500 font-semibold">للتدريب والتأهيل التقني والمهني</p>
+                </div>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-6 space-x-reverse text-sm font-semibold">
+                <button onclick="showSection('home')" class="nav-link text-ycsRed transition hover:text-ycsRed"><i class="fas fa-home ml-1"></i> الرئيسية</button>
+                <button onclick="showSection('results')" class="nav-link text-slate-600 transition hover:text-ycsRed"><i class="fas fa-search ml-1"></i> الاستعلام عن النتائج</button>
+                <button onclick="showSection('about')" class="nav-link text-slate-600 transition hover:text-ycsRed"><i class="fas fa-info-circle ml-1"></i> عن المعهد</button>
+                <button onclick="showSection('contact')" class="nav-link text-slate-600 transition hover:text-ycsRed"><i class="fas fa-headset ml-1"></i> اتصل بنا</button>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700 text-xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-2 text-sm font-semibold">
+            <button onclick="showSection('home'); toggleMobileMenu();" class="block w-full text-right py-2 text-slate-700"><i class="fas fa-home ml-2 text-ycsRed"></i> الرئيسية</button>
+            <button onclick="showSection('results'); toggleMobileMenu();" class="block w-full text-right py-2 text-slate-700"><i class="fas fa-search ml-2 text-ycsRed"></i> الاستعلام عن النتائج</button>
+            <button onclick="showSection('about'); toggleMobileMenu();" class="block w-full text-right py-2 text-slate-700"><i class="fas fa-info-circle ml-2 text-ycsRed"></i> عن المعهد</button>
+            <button onclick="showSection('contact'); toggleMobileMenu();" class="block w-full text-right py-2 text-slate-700"><i class="fas fa-headset ml-2 text-ycsRed"></i> اتصل بنا</button>
+        </div>
+    </header>
+
+    <!-- Content Sections Container -->
+    <main class="flex-grow">
+
+        <!-- HOME SECTION -->
+        <section id="section-home" class="block">
+            <!-- Hero Banner -->
+            <div class="hero-pattern text-white py-16 md:py-24 px-4 text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative max-w-4xl mx-auto space-y-6 z-10">
+                    <span class="bg-ycsYellow text-slate-900 px-4 py-1.5 rounded-full text-xs font-bold shadow-md inline-block">
+                        <i class="fas fa-star ml-1"></i> صرح ريادي في التكنولوجيا والذكاء الاصطناعي
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+                        نصنع مستقبل التقنية بمعايير دولية
+                    </h2>
+                    <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                        برامج تدريبية متطورة بشراكة يمنية صينية تهدف إلى تأهيل جيل احترافي في هندسة البرمجيات، الذكاء الاصطناعي، والتقنيات المتقدمة.
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+                        <button onclick="showSection('results')" class="bg-ycsRed hover:bg-red-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-red-600/30 transition transform hover:-translate-y-0.5">
+                            <i class="fas fa-search ml-2"></i> استعلم عن نتائج الطلاب
+                        </button>
+                        <button onclick="showSection('about')" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold px-8 py-3.5 rounded-xl backdrop-blur transition">
+                            <i class="fas fa-book-open ml-2"></i> اكتشف التخصصات
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features / Stats Grid -->
+            <div class="max-w-7xl mx-auto px-4 -mt-10 relative z-20 pb-16">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center space-x-4 space-x-reverse">
+                        <div class="w-14 h-14 bg-red-50 text-ycsRed rounded-2xl flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg">تقنيات متقدمة</h3>
+                            <p class="text-xs text-slate-500 mt-1">مناهج دراسية مدمجة مع أحدث تقنيات الذكاء الاصطناعي.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center space-x-4 space-x-reverse">
+                        <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg">معتمدة وموثوقة</h3>
+                            <p class="text-xs text-slate-500 mt-1">شهادات معتمدة تؤهلك لسوق العمل المحلي والدولي بامتياز.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center space-x-4 space-x-reverse">
+                        <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg">خبرة صينية يمنية</h3>
+                            <p class="text-xs text-slate-500 mt-1">خبة تدريبية عالية الكفاءة وأجهزة مخبرية حديثة ومتكاملة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTS SECTION -->
+        <section id="section-results" class="hidden py-12 px-4 max-w-4xl mx-auto">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 md:p-10">
+                <!-- Heading -->
+                <div class="text-center space-y-2 mb-8">
+                    <div class="w-16 h-16 bg-red-50 text-ycsRed rounded-full flex items-center justify-center text-2xl mx-auto shadow-inner">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-900">بوابة استعلام النتائج الأكاديمية</h2>
+                    <p class="text-slate-500 text-sm">أدخل الرقم الأكاديمي الخاص بك لعرض النتيجة التفصيلية للفصل الدراسي الحالي.</p>
+                </div>
+
+                <!-- Input Form -->
+                <div class="max-w-md mx-auto bg-slate-50 p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2"><i class="fas fa-hashtag ml-1 text-ycsRed"></i> الرقم الأكاديمي للطالب</label>
+                        <input type="text" id="academicIdInput" placeholder="مثال: 1990166" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-ycsRed focus:border-transparent text-center text-lg font-mono tracking-wider font-bold bg-white">
+                    </div>
+                    <button onclick="handleQuery()" class="w-full bg-ycsRed hover:bg-red-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-red-600/30 transition flex items-center justify-center space-x-2 space-x-reverse">
+                        <i class="fas fa-search"></i>
+                        <span>استعلام عن النتيجة</span>
+                    </button>
+                </div>
+
+                <!-- Alerts / Messages Container -->
+                <div id="resultMessageContainer" class="mt-6 max-w-md mx-auto"></div>
+
+                <!-- Detailed Result Card (Hidden by default) -->
+                <div id="detailedResultCard" class="hidden mt-8 animate-fade-in border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-md">
+                    <!-- Card Header -->
+                    <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="space-y-1">
+                            <span class="bg-ycsYellow text-slate-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block">
+                                <i class="fas fa-trophy ml-1"></i> الأول مع مرتبة الشرف
+                            </span>
+                            <h3 id="resName" class="text-xl md:text-2xl font-black">يوسف سلطان محمد احمد الحاج</h3>
+                            <p class="text-xs text-slate-300 font-mono">الرقم الأكاديمي: <span id="resId" class="text-white font-bold">1990166</span></p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur border border-white/20 p-4 rounded-xl text-center min-w-[120px]">
+                            <span class="block text-xs text-slate-300">النسبة المئوية</span>
+                            <span id="resPercentage" class="text-3xl font-black text-ycsYellow">99.88%</span>
+                        </div>
+                    </div>
+
+                    <!-- Student Info Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-slate-50 border-b border-slate-200 text-xs md:text-sm">
+                        <div>
+                            <span class="block text-slate-400 font-medium">الدولة</span>
+                            <span id="resCountry" class="font-bold text-slate-800 text-base">اليمن</span>
+                        </div>
+                        <div>
+                            <span class="block text-slate-400 font-medium">تاريخ الميلاد</span>
+                            <span id="resDob" class="font-bold text-slate-800 text-base font-mono">2008/02/26</span>
+                        </div>
+                        <div>
+                            <span class="block text-slate-400 font-medium">القسم</span>
+                            <span id="resDept" class="font-bold text-slate-800 text-base">تكنولوجيا المعلومات</span>
+                        </div>
+                        <div>
+                            <span class="block text-slate-400 font-medium">الترخيص الممنوح</span>
+                            <span id="resLicense" class="font-bold text-ycsRed text-base">مهندس برمجيات عام</span>
+                        </div>
+                    </div>
+
+                    <!-- Academic Subjects Tables -->
+                    <div class="p-6 space-y-6">
+                        <!-- Theoretical Subjects -->
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base mb-3 flex items-center">
+                                <i class="fas fa-book text-ycsRed ml-2"></i> المواد النظرية (Theoretical Subjects)
+                            </h4>
+                            <div class="overflow-x-auto rounded-xl border border-slate-200">
+                                <table class="w-full text-right text-sm">
+                                    <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">اسم المادة</th>
+                                            <th class="p-3 text-center">الدرجة العظمى</th>
+                                            <th class="p-3 text-center">درجة الطالب</th>
+                                            <th class="p-3 text-center">التقدير</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="theoSubjectsTable" class="divide-y divide-slate-100 font-medium">
+                                        <!-- Populated via JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Practical Subjects -->
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base mb-3 flex items-center">
+                                <i class="fas fa-laptop-code text-blue-600 ml-2"></i> المواد العملية (Practical & AI Subjects)
+                            </h4>
+                            <div class="overflow-x-auto rounded-xl border border-slate-200">
+                                <table class="w-full text-right text-sm">
+                                    <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">اسم المادة</th>
+                                            <th class="p-3 text-center">الدرجة العظمى</th>
+                                            <th class="p-3 text-center">درجة الطالب</th>
+                                            <th class="p-3 text-center">التقدير</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pracSubjectsTable" class="divide-y divide-slate-100 font-medium">
+                                        <!-- Populated via JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Footer Action Buttons -->
+                        <div class="pt-4 flex flex-col sm:flex-row justify-end gap-3 border-t border-slate-100">
+                            <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-900 text-white px-6 py-2.5 rounded-xl text-sm font-bold shadow transition flex items-center justify-center space-x-2 space-x-reverse">
+                                <i class="fas fa-print"></i>
+                                <span>طباعة النتيجة الرسمية</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="section-about" class="hidden py-12 px-4 max-w-5xl mx-auto">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 md:p-10 space-y-8">
+                <div class="text-center space-y-3">
+                    <span class="bg-red-50 text-ycsRed px-3 py-1 rounded-full text-xs font-bold">عن المعهد</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-900">المعهد اليمني الصيني للتدريب والتأهيل</h2>
+                    <p class="text-slate-600 text-sm max-w-2xl mx-auto leading-relaxed">
+                        تأسس المعهد ليكون جسراً للتعاون المعرفي والتقني بين الجمهورية اليمنية جمهورية الصين الشعبية، مقدماً أحدث المعايير في التعليم المهني وتكنولوجيا المعلومات.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/60 space-y-3">
+                        <div class="w-10 h-10 bg-ycsRed text-white rounded-xl flex items-center justify-center font-bold">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-lg">رؤيتنا</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">
+                            الريادة والتميز الإقليمي في تقديم التدريب التقني والمهني وبرمجيات الذكاء الاصطناعي لتلبية متطلبات الثورة الصناعية الرابعة.
+                        </p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/60 space-y-3">
+                        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-lg">رسالتنا</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">
+                            تأهيل كوادر بشرية تخصصية تمتلك المهارات العملية والنظرية العالية المنافسة في أسواق العمل المحلية والعالمية بكفاءة وا اقتدار.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="section-contact" class="hidden py-12 px-4 max-w-4xl mx-auto">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 md:p-10 space-y-8">
+                <div class="text-center space-y-2">
+                    <span class="bg-red-50 text-ycsRed px-3 py-1 rounded-full text-xs font-bold">تواصل معنا</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-900">نحن هنا للإجابة على استفساراتكم</h2>
+                    <p class="text-slate-500 text-sm">يمكنك مراسلتنا أو زيارة مقر المعهد الرئيسي.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-2">
+                        <div class="text-ycsRed text-2xl"><i class="fas fa-map-marker-alt"></i></div>
+                        <h4 class="font-bold text-slate-900 text-sm">العنوان</h4>
+                        <p class="text-slate-500 text-xs">الجمهورية اليمنية - صنعاء / عدن</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-2">
+                        <div class="text-ycsRed text-2xl"><i class="fas fa-phone"></i></div>
+                        <h4 class="font-bold text-slate-900 text-sm">الهاتف</h4>
+                        <p class="text-slate-500 text-xs" dir="ltr">+967 1 234567</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-2">
+                        <div class="text-ycsRed text-2xl"><i class="fas fa-envelope"></i></div>
+                        <h4 class="font-bold text-slate-900 text-sm">البريد الإلكتروني</h4>
+                        <p class="text-slate-500 text-xs">info@ycs-institute.ye</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-ycsDark text-slate-400 py-8 px-4 mt-auto border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-right">
+            <div>
+                <p class="font-bold text-slate-200">المعهد اليمني الصيني للتدريب والتأهيل © 2024</p>
+                <p class="text-[11px] text-slate-500 mt-1">جميع الحقوق محفوظة - تطوير وتصميم البوابة الأكاديمية</p>
+            </div>
+            <div class="flex space-x-4 space-x-reverse text-base">
+                <a href="#" class="hover:text-ycsYellow transition"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-ycsYellow transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-ycsYellow transition"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="hover:text-ycsYellow transition"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Track query attempts for the specific student ID 1990166
+        let queryAttempts = 0;
+        const TARGET_ID = "1990166";
+
+        // Navigation Switcher
+        function showSection(sectionId) {
+            const sections = ['home', 'results', 'about', 'contact'];
+            sections.forEach(sec => {
+                const el = document.getElementById(`section-${sec}`);
+                if (el) {
+                    if (sec === sectionId) {
+                        el.classList.remove('hidden');
+                        el.classList.add('block');
+                    } else {
+                        el.classList.remove('block');
+                        el.classList.add('hidden');
+                    }
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Handle Query Action
+        function handleQuery() {
+            const inputVal = document.getElementById('academicIdInput').value.trim();
+            const msgContainer = document.getElementById('resultMessageContainer');
+            const resultCard = document.getElementById('detailedResultCard');
+
+            // Reset view
+            msgContainer.innerHTML = '';
+            resultCard.classList.add('hidden');
+
+            if (!inputVal) {
+                msgContainer.innerHTML = `
+                    <div class="bg-amber-50 border border-amber-200 text-amber-800 p-4 rounded-xl text-xs font-semibold flex items-center space-x-2 space-x-reverse">
+                        <i class="fas fa-exclamation-triangle text-amber-600 text-base ml-2"></i>
+                        <span>الرجاء إدخال الرقم الأكاديمي أولاً.</span>
+                    </div>
+                `;
+                return;
+            }
+
+            if (inputVal !== TARGET_ID) {
+                msgContainer.innerHTML = `
+                    <div class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-xs font-semibold flex items-center space-x-2 space-x-reverse">
+                        <i class="fas fa-times-circle text-red-500 text-base ml-2"></i>
+                        <span>الرقم الأكاديمي غير مسجل في النظام. (جرب الرقم: 1990166)</span>
+                    </div>
+                `;
+                return;
+            }
+
+            // Increment attempt count for the target ID
+            queryAttempts++;
+
+            if (queryAttempts === 1) {
+                // First attempt message: System is busy/suspended
+                msgContainer.innerHTML = `
+                    <div class="bg-amber-50 border border-amber-200 text-amber-800 p-4 rounded-xl text-xs font-semibold flex items-center space-x-2 space-x-reverse animate-fade-in">
+                        <i class="fas fa-exclamation-circle text-amber-600 text-lg ml-2"></i>
+                        <div>
+                            <span class="block font-bold text-sm">تنبيه النظام:</span>
+                            <span>النظام معلق حالياً بسبب الضغط الشديد على الخوادم، يرجى إعادة المحاولة مرة أخرى.</span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Second attempt or subsequent attempts: Show details
+                msgContainer.innerHTML = `
+                    <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-3 rounded-xl text-xs font-semibold flex items-center space-x-2 space-x-reverse animate-fade-in">
+                        <i class="fas fa-check-circle text-emerald-600 text-base ml-2"></i>
+                        <span>تم جلب البيانات بنجاح!</span>
+                    </div>
+                `;
+                
+                populateStudentData();
+                resultCard.classList.remove('hidden');
+                
+                // Scroll smoothly to results
+                resultCard.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Populate Student Results Data (matching 99.88% total average)
+        function populateStudentData() {
+            // Student details are pre-filled in HTML structure, but we can ensure dynamic subject loading
+            const theoreticalSubjects = [
+                { name: "هندسة البرمجيات المتقدمة (Advanced Software Eng.)", max: 100, score: 100, grade: "امتياز مع مرتبة الشرف" },
+                { name: "تحليل وتصميم نظم المعلومات (Systems Analysis)", max: 100, score: 100, grade: "امتياز" },
+                { name: "أمن الشبكات وحماية المعلومات (Network Security)", max: 100, score: 99, grade: "امتياز" },
+                { name: "هياكل البيانات المتقدمة والخوارزميات", max: 100, score: 100, grade: "امتياز" },
+                { name: "إدارة المشاريع البرمجية (Agile & Scrum)", max: 100, score: 99, grade: "امتياز" }
+            ];
+
+            const practicalSubjects = [
+                { name: "تطبيقات الذكاء الاصطناعي وتعلم الآلة (AI & ML)", max: 100, score: 100, grade: "امتياز" },
+                { name: "البرمجة الشاملة والتطبيقات السحابية (Full Stack)", max: 100, score: 100, grade: "امتياز" },
+                { name: "تطوير تطبيقات الهواتف الذكية المتقدمة", max: 100, score: 100, grade: "امتياز" },
+                { name: "قواعد البيانات الضخمة وتحليل البيانات (Big Data)", max: 100, score: 99, grade: "امتياز" },
+                { name: "مشروع التخرج الهندسي (تطبيق ذكي متكامل)", max: 100, score: 100, grade: "امتياز" }
+            ];
+
+            const theoTable = document.getElementById('theoSubjectsTable');
+            const pracTable = document.getElementById('pracSubjectsTable');
+
+            theoTable.innerHTML = '';
+            pracTable.innerHTML = '';
+
+            theoreticalSubjects.forEach(sub => {
+                theoTable.innerHTML += `
+                    <tr class="hover:bg-slate-50 transition">
+                        <td class="p-3 text-slate-800 font-semibold">${sub.name}</td>
+                        <td class="p-3 text-center text-slate-600">${sub.max}</td>
+                        <td class="p-3 text-center font-mono font-bold text-ycsRed">${sub.score}</td>
+                        <td class="p-3 text-center text-emerald-600 font-bold text-xs">${sub.grade}</td>
+                    </tr>
+                `;
+            });
+
+            practicalSubjects.forEach(sub => {
+                pracTable.innerHTML += `
+                    <tr class="hover:bg-slate-50 transition">
+                        <td class="p-3 text-slate-800 font-semibold">${sub.name}</td>
+                        <td class="p-3 text-center text-slate-600">${sub.max}</td>
+                        <td class="p-3 text-center font-mono font-bold text-blue-600">${sub.score}</td>
+                        <td class="p-3 text-center text-emerald-600 font-bold text-xs">${sub.grade}</td>
+                    </tr>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
